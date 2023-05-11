@@ -9,6 +9,9 @@ import {
   MapPinIcon,
   AdjustmentsVerticalIcon,
 } from "react-native-heroicons/outline";
+import { ScrollView } from "react-native";
+import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -36,16 +39,48 @@ const HomeScreen = () => {
         <UserIcon size={35} color="#00CCBB" />
       </View>
 
-      <View className="flex-row items-center p-2">
-        <View className="flex-row items-center space-x-2 flex-1 bg-gray-200 p-3 rounded-xl">
+      {/* Search */}
+      <View className="flex-row items-center px-4 py-2">
+        <View className="flex-row items-center space-x-2 flex-1 bg-gray-200 p-3 mr-1 rounded-xl">
           <MagnifyingGlassCircleIcon size={26} color="gray" />
           <TextInput
             keyboardType="default"
             placeholder="Restaurants and cuisines"
           />
         </View>
-        <AdjustmentsVerticalIcon className="ml-3" size={25} color="#00CCBB" />
+        <AdjustmentsVerticalIcon className="" size={25} color="#00CCBB" />
       </View>
+      {/* Body */}
+      <ScrollView
+        className="bg-gray-100"
+        contentContainerStyle={{
+          paddingBottom: 100,
+        }}
+      >
+        {/* Categories */}
+        <Categories />
+
+        {/* Featured */}
+        <FeaturedRow
+          id="1"
+          title={"Featured"}
+          description={"Paid placements for our partners"}
+        />
+
+        {/* Tasty Discounts */}
+        <FeaturedRow
+          id="2"
+          title={"Featured"}
+          description={"Paid placements for our partners"}
+        />
+
+        {/* Offers Near you */}
+        <FeaturedRow
+          id="3"
+          title={"Featured"}
+          description={"Paid placements for our partners"}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
